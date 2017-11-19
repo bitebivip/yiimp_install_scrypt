@@ -2,7 +2,7 @@
 ################################################################################
 # Author:   
 # 
-# Web:      blocksuckernation.com
+# Web:      
 #
 # Program:
 #   Install yiimp on Ubuntu 16.04 running Nginx, MariaDB, and php7.x

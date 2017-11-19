@@ -805,6 +805,10 @@ output "Final Directory permissions"
 output ""
 whoami=`whoami`
 sudo usermod -aG www-data $whoami
+sudo mkdir /root/backup/
+sudo mkdir /data
+sudo mkdir /data/yiimp
+sudo ln -s /var/web /data/yiimp/web
 sudo chown -R www-data:www-data /var/log
 sudo chown -R www-data:www-data /var/stratum
 sudo chown -R www-data:www-data /var/web

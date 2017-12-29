@@ -835,7 +835,7 @@ sudo apt-get update
 sudo apt-get install libdb4.8-dev libdb4.8++-dev build-essential libtool autotools-dev automake pkg-config libssl-dev libevent-dev bsdmainutils git libboost-all-dev libminiupnpc-dev libqt5gui5 libqt5core5a libqt5webkit5-dev libqt5dbus5 qttools5-dev qttools5-dev-tools libprotobuf-dev protobuf-compiler libqrencode-dev -y
 cd ~
 git clone https://github.com/oakey22/cryptoautobuild.git autobuild
-sudo chmod +x /autobuild/autobuilder.sh
+sudo chmod +x ~/autobuild/autobuilder.sh
 clear
 output "Whew that was fun, just some reminders. Your mysql information is saved in ~/.my.cnf. this installer did not directly install anything required to build coins."
 output ""

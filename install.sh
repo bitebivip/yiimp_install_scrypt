@@ -795,6 +795,20 @@ $configAlgoNormCoef = array(
 );
 ' | sudo -E tee /var/web/serverconfig.php >/dev/null 2>&1
 
+output "Adding Screen Start file to ~/"
+echo '
+#!/bin/bash
+LOG_DIR=/var/log
+WEB_DIR=/var/web
+STRATUM_DIR=/var/stratum
+USR_BIN=/usr/bin
+screen -dmS main bash $WEB_DIR/main.sh
+screen -dmS loop2 bash $WEB_DIR/loop2.sh
+screen -dmS blocks bash $WEB_DIR/blocks.sh
+screen -dmS debug tail -f $LOG_DIR/debug.log
+' | sudo -E tee ~/screen-start.sh >/dev/null 2>&1
+sudo chmod +x ~/screen-start.sh
+
 output "Updating stratum config files with database connection info."
 output ""
 cd /var/stratum/config
@@ -836,7 +850,7 @@ sudo apt-get update
 sudo apt-get install libdb4.8-dev libdb4.8++-dev build-essential libtool autotools-dev automake pkg-config libssl-dev libevent-dev bsdmainutils git libboost-all-dev libminiupnpc-dev libqt5gui5 libqt5core5a libqt5webkit5-dev libqt5dbus5 qttools5-dev qttools5-dev-tools libprotobuf-dev protobuf-compiler libqrencode-dev -y
 cd ~
 git clone https://github.com/oakey22/cryptoautobuild.git autobuild
-sudo chmod +x ~/autobuild/autobuilder.sh
+
 clear
 output "Whew that was fun, just some reminders. Your mysql information is saved in ~/.my.cnf. this installer did not directly install anything required to build coins."
 output ""
